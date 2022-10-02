@@ -1,11 +1,12 @@
 const rippleSettings = {
-  maxSize: 350,
-  animationSpeed: 3,
-  strokeColor: [192, 192, 192] };
+  maxSize: 300,
+  animationSpeed: 2,
+  strokeColor: [Math. floor((Math. random() * 255) + 1), Math. floor((Math. random() * 255) + 1), Math. floor((Math. random() * 255) + 1)] };
+
 
 
 const canvasSettings = {
-  blur: 15,
+  blur: 13,
   ratio: 1 };
 
 
@@ -13,16 +14,16 @@ function Coords(x, y) {
   this.x = x || null;
   this.y = y || null;
 }
-
+console.log(rippleSettings.strokeColor)
 const Ripple = function Ripple(x, y, circleSize, ctx) {
   this.position = new Coords(x, y);
-  this.circleSize = circleSize;
+  this.circleSize = Math.random(circleSize);
   this.maxSize = rippleSettings.maxSize;
-  this.opacity = 5;
+  this.opacity = 10;
   this.ctx = ctx;
   this.strokeColor = `rgba(${Math.floor(rippleSettings.strokeColor[0])},
-    ${Math.floor(rippleSettings.strokeColor[1]) * 100},
-    ${Math.floor(rippleSettings.strokeColor[2]) * 100},
+    ${Math.floor(rippleSettings.strokeColor[1])},
+    ${Math.floor(rippleSettings.strokeColor[2])},
     ${this.opacity})`;
 
   this.animationSpeed = rippleSettings.animationSpeed;
