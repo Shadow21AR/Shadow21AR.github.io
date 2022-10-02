@@ -18,15 +18,15 @@ const Ripple = function Ripple(x, y, circleSize, ctx) {
   this.position = new Coords(x, y);
   this.circleSize = circleSize;
   this.maxSize = rippleSettings.maxSize;
-  this.opacity = 1;
+  this.opacity = 5;
   this.ctx = ctx;
   this.strokeColor = `rgba(${Math.floor(rippleSettings.strokeColor[0])},
-    ${Math.floor(rippleSettings.strokeColor[1])},
-    ${Math.floor(rippleSettings.strokeColor[2])},
+    ${Math.floor(rippleSettings.strokeColor[1]) * 100},
+    ${Math.floor(rippleSettings.strokeColor[2]) * 100},
     ${this.opacity})`;
 
   this.animationSpeed = rippleSettings.animationSpeed;
-  this.opacityStep = this.animationSpeed / (this.maxSize - circleSize) / 2;
+  this.opacityStep = this.animationSpeed / (this.maxSize - circleSize) / 5;
 };
 
 Ripple.prototype = {
@@ -34,8 +34,8 @@ Ripple.prototype = {
     this.circleSize = this.circleSize + this.animationSpeed;
     this.opacity = this.opacity - this.opacityStep;
     this.strokeColor = `rgba(${Math.floor(rippleSettings.strokeColor[0])},
-      ${Math.random(rippleSettings.strokeColor[1])},
-      ${Math.random(rippleSettings.strokeColor[2])},
+      ${rippleSettings.strokeColor[1]},
+      ${rippleSettings.strokeColor[2]},
       ${this.opacity})`;
   },
   draw: function draw() {
