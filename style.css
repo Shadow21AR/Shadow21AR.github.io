@@ -16,3 +16,6 @@ body {
 #menu {
   width: 100%;
 }
+audio {
+  display: none;
+}
