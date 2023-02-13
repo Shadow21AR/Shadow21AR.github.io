@@ -564,7 +564,7 @@ canvas.addEventListener(
   false
 );
 
-canvas.addEventListener("dblclick", function(){
+canvas.addEventListener("click", function(){
   var mySong = document.getElementById("mySong");
     if (mySong.paused){
       mySong.play();
